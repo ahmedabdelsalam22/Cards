@@ -1,46 +1,51 @@
-<div class="container">
+<div class="container mt-6 ">
   <h1>ANGULAR+ASP.NETCORE</h1>
-  <div class="card-container">
-    <div class="cards-form">
-      <div class="form-group">
-        <label for="">Card Name</label>
-        <input type="text" name="cardName">
-      </div>
-      <div class="form-group">
-        <label for="">Card Number</label>
-        <input type="text" name="cardNumber">
-      </div>
-      <div class="form-group">
-        <label for="">Card Number</label>
-        <input type="text" name="cardNumber">
-      </div>
 
-      <div class="form-group form-group-inline">
+  <div class="row justify-content-center">
+
+    <div class="col-8">
+      <form>
         <div class="form-group">
-          <label for="">CVC</label>
-          <input type="text" name="cvc">
+          <label for="cardName">Cardholder Name</label>
+          <input type="text" class="form-control" id="cardName" placeholder="Enter cardholder name">
         </div>
+
         <div class="form-group">
-          <label for="">Expiry Month</label>
-          <input type="text" name="expiryMonth">
+          <label for="cardNumber">Card Number</label>
+          <input type="text" class="form-control" id="cardNumber" placeholder="Enter card number">
         </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="expiryMonth">Expiry Month</label>
+            <input type="text" class="form-control" id="expiryMonth" placeholder="MM">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="expiryYear">Expiry Year</label>
+            <input type="text" class="form-control" id="expiryYear" placeholder="YYYY">
+          </div>
+        </div>
+
         <div class="form-group">
-          <label for="">Expiry Year</label>
-          <input type="text" name="expiryYear">
+          <label for="cvc">CVC</label>
+          <input type="text" class="form-control" id="cvc" placeholder="Enter CVC">
         </div>
-      </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
     </div>
 
-    <div class="cards-grid">
+    <div class="col-4">
       <div class="card-row">
-        <div class="card-row-details">
-          <span>Ahmed Abd Elsalam</span>
-          <span>8596587452</span>
+        <div *ngFor="let card of cardsList" class="card-row-details">
+          <span>{{card.cardHolderName}}</span>
+          <span>{{card.cardNumber}}</span>
         </div>
         <div class="card-row-action">
-
+          <a><i class="fa-solid fa-trash-can"></i></a>
         </div>
       </div>
     </div>
+
   </div>
 </div>
